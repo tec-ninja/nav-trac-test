@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Header from "@components/common/header";
+import Header from "@components/common/header"
 
 type ExhibitionLayoutProps = {
     children: ReactNode
@@ -30,4 +30,4 @@ function ExhibitionDetailLayout(props: ExhibitionLayoutProps) {
 export {
     ExhibitionListLayout,
     ExhibitionDetailLayout
-};
+}

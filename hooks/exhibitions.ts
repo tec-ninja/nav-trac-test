@@ -25,7 +25,7 @@ function fetchList() {
         list,
         fetchMore, 
         page
-    };
+    }
 }
 
 export {

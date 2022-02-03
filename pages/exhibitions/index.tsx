@@ -1,5 +1,6 @@
-import type { NextPage, GetStaticProps } from 'next'
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { ReactNode } from 'react'
 import InfiniteScroll from "react-infinite-scroll-component"
 import axios from 'axios'
 import { isEmpty } from 'lodash'
@@ -16,7 +17,7 @@ type ListProps = {
   initialError: string
 }
 
-const List: any = (props: ListProps) => {
+const List: ReactNode = (props: ListProps) => {
 
   const { initialList, initialError } = props
   const { error, list, fetchMore, page } = fetchList()
@@ -38,11 +39,11 @@ const List: any = (props: ListProps) => {
             hasMore={true}
             loader={<p className='text-2xl font-bold italic'>LOADING...</p>}
           >
-            {page === 1 && !isEmpty(initialList) && initialList.map((item: any) => (
+            {page === 1 && !isEmpty(initialList) && initialList.map((item: ListItemProps) => (
               <Item key={item.id} { ...item } />
             ))}
             {page === 1 && initialError && <div>{initialError}</div>}
-            {page > 1 && !isEmpty(list) && list.map((item: any) => (
+            {page > 1 && !isEmpty(list) && list.map((item: ListItemProps) => (
               <Item key={item.id} { ...item } />
             ))}
             {page > 1 && error && <div>{error}</div>}
@@ -54,7 +55,7 @@ const List: any = (props: ListProps) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  let res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exhibitions?page=1&limit=${ITEMS_PER_PAGE}`)
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exhibitions?page=1&limit=${ITEMS_PER_PAGE}`)
 
   if (res.status === 200)
     return { props: { initialList: res.data.data, initialError: '' }}

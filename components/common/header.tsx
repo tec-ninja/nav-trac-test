@@ -7,7 +7,7 @@ function Header({ title }: HeaderProps) {
         <div className="w-full px-5 py-2 bg-gray-600 text-white text-3xl">
             { title }
         </div>
-    );
+    )
 }
 
-export default Header;
+export default Header

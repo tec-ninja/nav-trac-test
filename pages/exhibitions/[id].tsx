@@ -1,6 +1,7 @@
 import type { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { ReactNode } from 'react'
 import axios from 'axios'
 
 import { ExhibitionDetailLayout } from '../../components/layouts/exhibitions'
@@ -11,8 +12,8 @@ type DetailProps = {
   error: string
 }
 
-const Detail: any = (props: DetailProps) => {
-  const { data, error } = props;
+const Detail: ReactNode = (props: DetailProps) => {
+  const { data, error } = props
 
   return (
     <div>
@@ -24,7 +25,7 @@ const Detail: any = (props: DetailProps) => {
 
       <main>
         <ExhibitionDetailLayout>
-          <Link href={'/exhibitions'}>
+          <Link href={'/exhibitions'} passHref>
             <p className='text-xl text-blue-300 cursor-pointer hover:text-blue-600'>
               &#8592;&nbsp;BACK
             </p>
@@ -37,10 +38,10 @@ const Detail: any = (props: DetailProps) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  const id = context.params.id
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { query: { id } } = context
   
-  let res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exhibitions/${id}`)
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/exhibitions/${id}`)
 
   if (res.status === 200) 
     return { props: { data: res.data.data, error: '' }}
