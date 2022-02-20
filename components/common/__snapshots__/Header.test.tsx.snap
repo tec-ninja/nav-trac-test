@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<div
+  className="w-full px-5 py-2 bg-blue-600 text-white text-2xl"
+>
+  This is header
+</div>
+`;
