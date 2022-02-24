@@ -29,7 +29,7 @@ export default function Checkin() {
                     showCase={isCheckIn}
                 />)}
                 <button 
-                    className="mt-5 bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700" 
+                    className="mt-5 bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700 transition-colors duration-300 ease-in-out" 
                     onClick={saveInfo}
                 >
                     Submit
@@ -45,7 +45,7 @@ export default function Checkin() {
                 />
                 {pageIndex >=0 && pageIndex < INFO_ITEMS.length - 1 && 
                     <button 
-                        className="mt-5 bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700" 
+                        className="mt-5 bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700 transition-colors duration-300 ease-in-out" 
                         onClick={() => setPageIndex(pageIndex + 1)}
                     >
                         Next
@@ -53,7 +53,7 @@ export default function Checkin() {
                 }
                 {pageIndex > 0 && pageIndex <= INFO_ITEMS.length - 1 && 
                     <button 
-                        className="mt-5 bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700" 
+                        className="mt-5 bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700 transition-colors duration-300 ease-in-out" 
                         onClick={() => setPageIndex(pageIndex - 1)}
                     >
                         Back
@@ -61,7 +61,7 @@ export default function Checkin() {
                 }
                 {pageIndex === INFO_ITEMS.length - 1 && 
                     <button 
-                        className="bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700" 
+                        className="bg-blue-600 px-2 rounded-sm text-white hover:bg-blue-700 transition-colors duration-300 ease-in-out" 
                         onClick={saveInfo}
                     >
                         Submit
