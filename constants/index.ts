@@ -1,3 +1,5 @@
+const CHECK_IN = true
+const CHECK_OUT = false
 export const INFO_ITEMS = [
     {
         caption: 'Driver Information',
@@ -5,20 +7,30 @@ export const INFO_ITEMS = [
             {
                 label: 'Name',
                 key: 'name',
-                regex: '[A-z ]+',
-                message: 'Name can contain only A-Z, a-z and space'
+                regex: '[A-z| ]+',
+                message: 'Name can contain only A-Z, a-z and space',
+                showCases: [CHECK_IN]
             },
             {
                 label: 'Phone Number',
                 key: 'phoneNumber',
                 regex: '(+)?[0-9]+',
-                message: 'Phone Number can contain only + sign and numbers'
+                message: 'Phone Number can contain only + sign and numbers',
+                showCases: [CHECK_IN, CHECK_OUT]
             },
             {
                 label: 'Hauling Company',
                 key: 'company',
-                regex: '[A-z0-9 ]+',
-                message: 'Hauling company name can contain only A-Z, a-z, numbers and space'
+                regex: '[A-z|0-9| ]+',
+                message: 'Hauling company name can contain only A-Z, a-z, numbers and space',
+                showCases: [CHECK_IN]
+            },
+            {
+                label: 'Time of Departure',
+                key: 'departureTime',
+                regex: '[0-9|/|-]',
+                message: 'Container number can contain only A-Z, a-z, numbers and space',
+                showCases: [CHECK_OUT]
             }
         ], 
     },
@@ -28,21 +40,24 @@ export const INFO_ITEMS = [
             {
                 label: 'Load/Booking Number',
                 key: 'loadNumber',
-                regex: '[A-z0-9]+',
-                message: 'Booking number can contain only A-Z, a-z and numbers'
+                regex: '[A-z|0-9]+',
+                message: 'Booking number can contain only A-Z, a-z and numbers',
+                showCases: [CHECK_IN, CHECK_OUT]
             },
             {
                 label: 'Customer Name',
                 key: 'customerName',
-                regex: '[A-z ]+',
-                message: 'Customer name can contain only A-Z, a-z and space'
+                regex: '[A-z| ]+',
+                message: 'Customer name can contain only A-Z, a-z and space',
+                showCases: [CHECK_IN]
             },
             {
                 label: 'Container Number',
                 key: 'containerNumber',
-                regex: '[A-z0-9 ]+',
-                message: 'Container number can contain only A-Z, a-z, numbers and space'
-            }
+                regex: '[A-z|0-9| ]+',
+                message: 'Container number can contain only A-Z, a-z, numbers and space',
+                showCases: [CHECK_IN]
+            },
         ]
     }
 ]
