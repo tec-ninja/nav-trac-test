@@ -6,7 +6,7 @@ import Router from 'next/router'
 const Home: NextPage = () => {
 
   useEffect(() => {
-    Router.push('/checkinout')
+    Router.push('/check')
   }, [])
 
   return (

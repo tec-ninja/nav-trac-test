@@ -4,14 +4,21 @@ import { useSaveInfo } from "../hooks/check"
 import Toggle from "../components/common/Toggle"
 import { CheckLayout } from "../components/layouts/Check"
 import InfoSection from "../components/check/InfoSection"
+import Weather from "@components/check/Weather"
 import { INFO_ITEMS } from "../constants"
 
 export default function Checkin() {
-    const { loading, message, pageIndex, setPageIndex, updateInfo, saveInfo } = useSaveInfo() 
+    const { loading, message, pageIndex, setPageIndex, updateInfo, saveInfo, dateTime, curTemp, minTemp, maxTemp } = useSaveInfo() 
     const [ isCheckIn, setIsCheckIn ] = useState(true)
 
     return (
         <CheckLayout>
+            <Weather 
+                dateTime={dateTime}
+                curTemp={curTemp}
+                minTemp={minTemp}
+                maxTemp={maxTemp}
+            />
             <div className="w-full p-5 md:p-0 md:w-96 flex justify-between">
                 <p className="text-lg">SELECT MODE:</p>
                 <Toggle 

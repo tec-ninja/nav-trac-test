@@ -7,9 +7,9 @@ type CheckLayoutProps = {
 
 function CheckLayout(props: CheckLayoutProps) {
     return (
-        <div className="w-screen h-screen flex flex-col">
+        <div className="h-screen flex flex-col">
             <Header title="CHECKIN / CHECKOUT" />
-            <div className="flex-1 flex flex-col items-center gap-2 mt-12">
+            <div className="flex-1 flex flex-col items-center gap-2">
                 {props.children}
             </div>
         </div>
